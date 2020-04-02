@@ -1,14 +1,15 @@
+import EventModel from '/Models/EventModel.js'
+import EventView from '/Views/EventView.js'
 
 class EventController{
 
     constructor(model, view){
-        console.log(this.model)
         this.model= model
         this.view = view
 
         this.onEventChanged(this.model.event_)
-        this.view.bindChanges(this.handleEditEventName,this.handleEditEventTime,this.handleEditEventDay)
-        this.model.bindChanges(this.onEventChanged)
+        this.view.bindChanges.bind(this, this.handleEditEventName,this.handleEditEventTime,this.handleEditEventDay)
+        this.model.bindChanges.bind(this,this.onEventChanged)
     }
 
     onEventChanged (event) {
@@ -17,6 +18,7 @@ class EventController{
 
 
     handleEditEventName(eventName){
+        console.log(eventName)
         this.model.editEventName(eventName)
     }
 

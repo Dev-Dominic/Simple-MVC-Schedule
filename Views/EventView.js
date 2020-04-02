@@ -1,4 +1,4 @@
-class EventView {
+export default class EventView {
     constructor(){
 
         this.app = this.getElement('#root')
@@ -66,19 +66,19 @@ class EventView {
         this.editForm.addEventListener('submit', event => {
             event.preventDefault()
             console.log(this._dayText,this._timeText,this._nameText)
-            if (this._nameText != null && (this._dayText === null && this._timeText === null)){
+            if (this._nameText != '' && (this._dayText === '' && this._timeText === '')){
                 nameHandler(this._nameText)
                 this._resetInput()
             }
-            else if(this._dayText != null && (this._nameText === null && this._timeText === null)){
+            else if(this._dayText != '' && (this._nameText === '' && this._timeText === '')){
                 timeHandler(this._dayText)
                 this._resetInput()
             }
-            else if(this._timeText != null && (this._dayText === '' && this._nameText === '')){
+            else if(this._timeText != '' && (this._dayText === '' && this._nameText === '')){
                 dayHandler(this._timeText)
                 this._resetInput()
             }
-            else if(this._nameText != null && this._dayText != null && this._timeText != null){
+            else if(this._nameText != '' && this._dayText != '' && this._timeText != ''){
                 nameHandler(this._nameText)
                 timeHandler(this._dayText)
                 dayHandler(this._timeText)

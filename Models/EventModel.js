@@ -1,26 +1,18 @@
-class EventModel {
-    event_ = {
-        eventId: 0, 
-        eventName: "", 
-        eventDay:"",
-        eventTime: "",
-        eventLabTechs: []
-    }
+localStorage.setItem("event_", JSON.stringify({
+    eventId: 0, 
+    eventName: "D", 
+    eventDay:"B",
+    eventTime: "C",
+    eventLabTechs: []
+}))
+export default class EventModel {
+
    // State of the model, the attributes of an event, prepoulated with some data
-    constructor(name, day, time){
-        this.event_ = 
-            {
-                eventId: this.event_.id + 1, 
-                eventName: name, 
-                eventDay: day,
-                eventTime: time,
-                eventLabTechs: []
-            }
+    constructor(){
+        this.event_ = JSON.parse(localStorage.getItem('event_'))
         
     }
-   get event_(){
-       return this.event_
-   }
+   // Adding a Lab Tech to a given event
     addLabTech(labtech){
         this.event_.eventLabTechs.push(labtech)
     }
@@ -38,5 +30,9 @@ class EventModel {
      bindChanges(callback){
          this.onEventChanged = callback
      }
+     _commit(event) {
+        this.onEventChanged(event)
+        localStorage.setItem('todos', JSON.stringify(event))
+      }
 }
 
