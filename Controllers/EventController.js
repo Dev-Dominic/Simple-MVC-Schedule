@@ -8,17 +8,17 @@ class EventController{
         this.view = view
 
         this.onEventChanged(this.model.event_)
-        this.view.bindChanges.bind(this, this.handleEditEventName,this.handleEditEventTime,this.handleEditEventDay)
-        this.model.bindChanges.bind(this,this.onEventChanged)
+        this.view.bindChanges(this.handleEditEventName.bind(this),this.handleEditEventTime.bind(this),this.handleEditEventDay.bind(this))
+        this.model.bindChanges(this.onEventChanged.bind(this))
     }
 
     onEventChanged (event) {
-        this.view.displayEvent(event)
+        this.view.displayEvent(event) 
     }
 
 
     handleEditEventName(eventName){
-        console.log(eventName)
+
         this.model.editEventName(eventName)
     }
 
