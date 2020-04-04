@@ -13,8 +13,8 @@ export default class EventView {
         this.dayInput = this.createElement('input')
         this.timeInput = this.createElement('input')
         this.nameInput.type = 'text'
-        this.dayInput.type = 'text'
-        this.timeInput.type = 'text'
+        this.dayInput.type = 'date'
+        this.timeInput.type = 'time'
         this.nameInput.placeholder = 'Enter new event name'
         this.dayInput.placeholder = 'Enter new day of event'
         this.timeInput.placeholder = 'Enter new time of event'
@@ -44,7 +44,7 @@ export default class EventView {
 
     displayEvent(event){
         this.EventTitle.innerHTML = event.eventName
-        this.EventDate.innerHTML =  event.eventDay + "\n" + event.eventTime
+        this.EventDate.innerHTML =  event.eventTime
     }
 
     get _nameText() {
@@ -74,14 +74,14 @@ export default class EventView {
                /* arr = this.getElement('.Event_Date').innerHTML.split('\n')
                 arr[0] = this._dayText
                 this.getElement('.Event_Date').innerHTML = arr.join('\n')*/
-                timeHandler(this._dayText)
+                dayHandler(this._dayText)
                 this._resetInput()
             }
             else if(this._timeText != '' && (this._dayText === '' && this._nameText === '')){
                 var arr = this.getElement('.Event_Date').innerHTML.split('\n')
                 /*arr[1] = this._timeText
                 this.getElement('.Event_Date').innerHTML = arr.join('\n')*/
-                dayHandler(this._timeText)
+                timeHandler(this._timeText)
                 this._resetInput()
             }
             else if(this._nameText != '' && this._dayText != '' && this._timeText != ''){
@@ -91,8 +91,8 @@ export default class EventView {
                 this.getElement('.Event_Date').innerHTML = arr.join('\n')
                 this.getElement('.Event_Title').innerHTML = this._nameText*/
                 nameHandler(this._nameText)
-                timeHandler(this._dayText)
-                dayHandler(this._timeText)
+                dayHandler(this._dayText)
+                timeHandler(this._timeText)
                 this._resetInput()
             }
         })
