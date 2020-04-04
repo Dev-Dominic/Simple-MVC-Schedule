@@ -4,8 +4,8 @@ export default class EventView {
         this.app = this.getElement('#root')
 
         this.EventBody = this.createElement('div','Event_Card')
-        this.EventTitle = this.createElement('h1')
-        this.EventDate = this.createElement('p')
+        this.EventTitle = this.createElement('h1','Event_Title')
+        this.EventDate = this.createElement('p','Event_Date')
         this.EventBody.append(this.EventTitle,this.EventDate)
 
         this.editForm = this.createElement('form')
@@ -43,8 +43,8 @@ export default class EventView {
     
 
     displayEvent(event){
-        this.EventTitle = event.eventName
-        this.EventDate =  event.eventDay + "\n" + event.eventTime
+        this.EventTitle.innerHTML = event.eventName
+        this.EventDate.innerHTML =  event.eventDay + "\n" + event.eventTime
     }
 
     get _nameText() {
@@ -58,27 +58,38 @@ export default class EventView {
       }
       
       _resetInput() {
-        this.input.dayInput.value = ''
-        this.input.naneInput.value = ''
-        this.input.timeInput.value = ''
+        this.dayInput.value = ''
+        this.nameInput.value = ''
+        this.timeInput.value = ''
       }
       bindChanges(nameHandler,timeHandler,dayHandler){
         this.editForm.addEventListener('submit', event => {
             event.preventDefault()
-            console.log(this._dayText,this._timeText,this._nameText)
             if (this._nameText != '' && (this._dayText === '' && this._timeText === '')){
+              //  this.getElement('.Event_Title').innerHTML = this._nameText
                 nameHandler(this._nameText)
                 this._resetInput()
             }
             else if(this._dayText != '' && (this._nameText === '' && this._timeText === '')){
+               /* arr = this.getElement('.Event_Date').innerHTML.split('\n')
+                arr[0] = this._dayText
+                this.getElement('.Event_Date').innerHTML = arr.join('\n')*/
                 timeHandler(this._dayText)
                 this._resetInput()
             }
             else if(this._timeText != '' && (this._dayText === '' && this._nameText === '')){
+                var arr = this.getElement('.Event_Date').innerHTML.split('\n')
+                /*arr[1] = this._timeText
+                this.getElement('.Event_Date').innerHTML = arr.join('\n')*/
                 dayHandler(this._timeText)
                 this._resetInput()
             }
             else if(this._nameText != '' && this._dayText != '' && this._timeText != ''){
+              /*  var arr = ['','']
+                arr[0] = this._dayText
+                arr[1] = this._timeText
+                this.getElement('.Event_Date').innerHTML = arr.join('\n')
+                this.getElement('.Event_Title').innerHTML = this._nameText*/
                 nameHandler(this._nameText)
                 timeHandler(this._dayText)
                 dayHandler(this._timeText)
