@@ -24,7 +24,7 @@ export default class EventView {
         this.editForm.append(this.nameInput,this.dayInput,this.timeInput,this.submitButton)
         this.app.append(this.EventBody,this.editForm)
 
-
+    }
     // Create an element with an optional CSS class 
     createElement(tag, className) {
         const element = document.createElement(tag)
