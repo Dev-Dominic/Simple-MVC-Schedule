@@ -1,0 +1,23 @@
+{
+  "name": "Simple-MVC-Schedule",
+  "version": "1.0.0",
+  "description": "A simple schedule template that's able to display events and allows you to organized them in groups(Weekdays, Weekend etc..)  Designed using the Model-View-Controller Architecture",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tajcore/Simple-MVC-Schedule.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tajcore/Simple-MVC-Schedule/issues"
+  },
+  "homepage": "https://github.com/Tajcore/Simple-MVC-Schedule#readme",
+  "dependencies": {
+    "http-server": "^0.12.1"
+  }
+}
