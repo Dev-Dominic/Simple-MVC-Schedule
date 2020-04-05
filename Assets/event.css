@@ -71,12 +71,26 @@ button {
 
 .Event_Card{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-self: center;
-    height: 20%;
+    height: 15%;
     width: 60%;
-    border: 1px dotted #007bff;
+    border: 1px solid #007bff;
+    box-shadow: blue ;
     margin-bottom: 10%;
     margin-top: 10%;
+    border-radius: 4px;
+    background-color: #007bff;
     
+}
+
+.Event_Card > * {
+  align-self: left;
+  margin-left: 0.5rem;
+  margin-top: -0.5rem; 
+  color: white;
+}
+
+.Event_Card > .Event_Title{
+  margin-top: 1.5rem;
 }

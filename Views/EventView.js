@@ -2,13 +2,13 @@ export default class EventView {
     constructor(){
 
         this.app = this.getElement('#root')
-
+        this.editForm = this.createElement('form','Event_Form')
         this.EventBody = this.createElement('div','Event_Card')
         this.EventTitle = this.createElement('h1','Event_Title')
         this.EventDate = this.createElement('p','Event_Date')
         this.EventBody.append(this.EventTitle,this.EventDate)
 
-        this.editForm = this.createElement('form')
+        
         this.nameInput = this.createElement('input')
         this.dayInput = this.createElement('input')
         this.timeInput = this.createElement('input')
@@ -23,7 +23,7 @@ export default class EventView {
 
         this.editForm.append(this.nameInput,this.dayInput,this.timeInput,this.submitButton)
         this.app.append(this.EventBody,this.editForm)
-    }
+
 
     // Create an element with an optional CSS class 
     createElement(tag, className) {
